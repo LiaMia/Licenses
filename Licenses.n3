@@ -1,0 +1,992 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ns0: <http://imn.htwk-leipzig.de/jthrando/license_ontology#> .
+
+<http://imn.htwk-leipzig.de/jthrando/license_ontology#compatible>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://imn.htwk-leipzig.de/jthrando/license_ontology#license> ;
+  rdfs:range <http://imn.htwk-leipzig.de/jthrando/license_ontology#license> .
+
+<http://imn.htwk-leipzig.de/jthrando/license_ontology#incompatible>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://imn.htwk-leipzig.de/jthrando/license_ontology#license> ;
+  rdfs:range <http://imn.htwk-leipzig.de/jthrando/license_ontology#license> .
+
+<http://imn.htwk-leipzig.de/jthrando/license_ontology#copyleft>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://imn.htwk-leipzig.de/jthrando/license_ontology#license> ;
+  rdfs:range xsd:boolean .
+
+<http://imn.htwk-leipzig.de/jthrando/license_ontology#synonyms>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://imn.htwk-leipzig.de/jthrando/license_ontology#license> ;
+  rdfs:range xsd:string .
+
+<http://imn.htwk-leipzig.de/jthrando/license_ontology#version>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://imn.htwk-leipzig.de/jthrando/license_ontology#license> ;
+  rdfs:range xsd:float .
+
+<http://imn.htwk-leipzig.de/jthrando/license_ontology#freeSoftwareLicense>
+  a owl:Class ;
+  rdfs:subClassOf <http://imn.htwk-leipzig.de/jthrando/license_ontology#license> ;
+  rdfs:comment "A license that is considered as a free software license by the Free Software Foundation."@en .
+
+<http://imn.htwk-leipzig.de/jthrando/license_ontology#license>
+  a owl:Class ;
+  rdfs:comment "A license can be a free software license or a non-free software license and/or an open source license."@en .
+
+<http://imn.htwk-leipzig.de/jthrando/license_ontology#nonFreeSoftwareLicense>
+  a owl:Class ;
+  rdfs:subClassOf <http://imn.htwk-leipzig.de/jthrando/license_ontology#license> ;
+  rdfs:comment "A license that is not considered as a free software license by the Free Software Foundation. The license is automatically incompatible with GNU GPL Version 2 and 3."@en .
+
+<http://imn.htwk-leipzig.de/jthrando/license_ontology#openSourceLicense>
+  a owl:Class ;
+  rdfs:subClassOf <http://imn.htwk-leipzig.de/jthrando/license_ontology#license> ;
+  rdfs:comment "An open source license has been approved by the OSI (Open Source Initiative) via the License Review Process."@en .
+
+<http://imn.htwk-leipzig.de/jthrando/license_ontology#AFL>
+  a <http://imn.htwk-leipzig.de/jthrando/license_ontology#freeSoftwareLicense>, <http://imn.htwk-leipzig.de/jthrando/license_ontology#openSourceLicense> ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "3.0"^^xsd:string ;
+  ns0:synonyms "AFL", "Academic Free License (AFL) v. 3.0" ;
+  rdfs:label "Academic Free License 3.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:AFLv3" .
+
+ns0:AGPLv1
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "AGPLv1" ;
+  rdfs:label "Affero General Public License 1.0"@en ;
+  rdfs:seeAlso "http://www.affero.org/oagpl.html" .
+
+ns0:AGPLv3
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "3.0"^^xsd:string ;
+  ns0:synonyms "AGPLv3", "AGPLv3.0", "GNU Affero General Public License Version 3.0" ;
+  rdfs:label "GNU Affero General Public License 3.0"@en ;
+  rdfs:seeAlso "http://www.gnu.org/licenses/agpl-3.0" .
+
+ns0:APSLv2
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "2.0"^^xsd:string ;
+  ns0:synonyms "Apple Public Source License Version 2.0" ;
+  rdfs:label "Apple Public Source License 2.0"@en ;
+  rdfs:seeAlso "http://opensource.apple.com//license/apsl/" .
+
+ns0:ApacheV10
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "Apache1.0", "Apache Software License, Version 1.0" ;
+  rdfs:label "Apache License 1.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:Apache1.0" .
+
+ns0:ApacheV11
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "1.1"^^xsd:string ;
+  ns0:synonyms "Apache1.1", "The Apache Software License, Version 1.1" ;
+  rdfs:label "Apache License 1.1"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:Apache1.1" .
+
+ns0:ApacheV2
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv3 ;
+  ns0:incompatible ns0:GPLv2 ;
+  ns0:copyleft false ;
+  ns0:version "2.0"^^xsd:string ;
+  ns0:synonyms "Apache2.0", "Apache License Version 2.0" ;
+  rdfs:label "Apache License 2.0"@en ;
+  rdfs:seeAlso "http://www.apache.org/licenses/LICENSE-2.0" .
+
+ns0:ArtisticV2
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "2.0"^^xsd:string ;
+  ns0:synonyms "The Artistic License 2.0" ;
+  rdfs:label "Artistic License 2.0"@en ;
+  rdfs:seeAlso "http://www.perlfoundation.org/artistic_license_2_0" .
+
+ns0:BSD3Clause
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:synonyms "BSD-3", "3-clause BSD", "BSD-new", "Revised BSD License", "New BSD License" ;
+  rdfs:label "Modified BSD License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:BSD_3Clause" .
+
+ns0:BSDClear
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:synonyms "The Clear BSD License" ;
+  rdfs:label "Clear BSD License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:ClearBSD" .
+
+ns0:Berkeley
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:synonyms "Sleepycat", "Sleepycat Software Product License", "Open Source License for Oracle Berkeley DB" ;
+  rdfs:label "Berkeley Database License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:Sleepycat" .
+
+ns0:BitTorrent
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.1"^^xsd:string ;
+  ns0:synonyms "BitTorrentOSL1.1", "BitTorrent Open Source License Version 1.1" ;
+  rdfs:label "BitTorrent Open Source License 1.1"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:BitTorrentOSL1.1" .
+
+ns0:Boost
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "Boost1.0", "BitTorrent Open Source License Version 1.1" ;
+  rdfs:label "Boost Software License 1.0"@en ;
+  rdfs:seeAlso "http://www.boost.org/LICENSE_1_0.txt" .
+
+ns0:CC0
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "Creative Commons CC0" ;
+  rdfs:label "CC0 1.0 Universal"@en ;
+  rdfs:seeAlso "https://creativecommons.org/publicdomain/zero/1.0/legalcode" .
+
+ns0:CDDL
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "CDDLv1.0", "Common Development and Distribution License (CDDL), Version 1.0 " ;
+  rdfs:label "Common Development and Distribution License (CDDL) 1.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:CDDLv1.0" .
+
+ns0:CECILL
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "2.0"^^xsd:string ;
+  ns0:synonyms "CeCILL FREE SOFTWARE LICENSE AGREEMENT" ;
+  rdfs:label "CeCILL 2.0"@en ;
+  rdfs:seeAlso "http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt" .
+
+ns0:CPAL
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "Common Public Attribution License Version 1.0 (CPAL)" ;
+  rdfs:label "Common Public Attribution License 1.0"@en ;
+  rdfs:seeAlso "https://www.socialtext.net/open/cpal_license_in_wikitext" .
+
+ns0:CPL
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "Common Public License - v 1.0" ;
+  rdfs:label "Common Public License 1.0"@en ;
+  rdfs:seeAlso "http://www.eclipse.org/legal/cpl-v10.html" .
+
+ns0:ClArtistict
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "Clarified Artistic License"@en ;
+  rdfs:seeAlso "https://gianlucadellavedova.wordpress.com/2011/01/03/clarified-artistic-license/" .
+
+ns0:Condor
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "1.1"^^xsd:string ;
+  ns0:synonyms "Condor Public License Version 1.1" ;
+  rdfs:label "Condor Public License 1.1"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki?title=License:Condor1.1" .
+
+ns0:Cryptix
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  rdfs:label "Cryptix General License"@en ;
+  rdfs:seeAlso "http://www.cryptix.org/LICENSE.TXT" .
+
+ns0:ECLv2
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv3 ;
+  ns0:incompatible ns0:GPLv2 ;
+  ns0:copyleft false ;
+  ns0:version "2.0"^^xsd:string ;
+  ns0:synonyms "Educational Community License Version 2.0" ;
+  rdfs:label "Educational Community License 2.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:ECL2.0" .
+
+ns0:EPL
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "Eclipse Public License - v 1.0" ;
+  rdfs:label "Eclipse Public License 1.0"@en ;
+  rdfs:seeAlso "http://www.eclipse.org/legal/epl-v10.html" .
+
+ns0:EUData
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  rdfs:label "EU DataGrid Software License"@en ;
+  rdfs:seeAlso "http://eu-datagrid.web.cern.ch/eu-datagrid/license.html" .
+
+ns0:EUPL
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.1"^^xsd:string ;
+  ns0:synonyms "European Union Public Licence V.1.1" ;
+  rdfs:label "European Union Public License 1.1"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:EUPLv1.1" .
+
+ns0:Eiffel
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "2.0"^^xsd:string ;
+  ns0:synonyms "Eiffel Forum License, version 2" ;
+  rdfs:label "Eiffel Forum License 2.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:EFLv2" .
+
+ns0:Expat
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  rdfs:label "Expat License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:Expat" .
+
+ns0:FDL
+  a ns0:freeSoftwareLicense ;
+  ns0:copyleft true ;
+  rdfs:label "GNU Free Documentation License"@en ;
+  rdfs:seeAlso "http://www.gnu.org/copyleft/fdl" .
+
+ns0:FreeBSD
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:synonyms "BSD-2", "2-clause BSD", "The FreeBSD Copyright", "Simplified BSD License" ;
+  rdfs:label "FreeBSD License"@en ;
+  rdfs:seeAlso "http://www.freebsd.org/copyright/freebsd-license.html" .
+
+ns0:Freetype
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv3 ;
+  ns0:incompatible ns0:GPLv2 ;
+  ns0:copyleft false ;
+  rdfs:label "Freetype Project License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:FreeType" .
+
+ns0:GNUAll
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "GNU All-Permissive License"@en ;
+  rdfs:seeAlso "http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html" .
+
+ns0:GPLv2
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "2.0"^^xsd:string ;
+  ns0:synonyms "GNU GPLv2", "GPLv2", "GNU General Public License Version 2" ;
+  rdfs:label "GNU General Public License 2.0"@en ;
+  rdfs:seeAlso "http://www.gnu.org/licenses/old-licenses/gpl-2.0" .
+
+ns0:GPLv3
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2 ;
+  ns0:copyleft true ;
+  ns0:version "3.0"^^xsd:string ;
+  ns0:synonyms "GNU GPLv3", "GPLv3", "GNU General Public License Version 3" ;
+  rdfs:label "GNU General Public License 3.0"@en ;
+  rdfs:seeAlso "http://www.gnu.org/copyleft/gpl" .
+
+ns0:Gnuplot
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "Gnuplot License"@en ;
+  rdfs:seeAlso "http://gnuplot.cvs.sourceforge.net/gnuplot/gnuplot/Copyright" .
+
+ns0:IBM
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "IBM Public License Version 1.0" ;
+  rdfs:label "IBM Public License 1.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:IBMPLv1.0" .
+
+ns0:ISC
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  rdfs:label "ISC License"@en ;
+  rdfs:seeAlso "https://www.isc.org/downloads/software-support-policy/isc-license/" .
+
+ns0:IntelACPI
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:synonyms "ACPI - Software License Agreement", "Intel Open Source License" ;
+  rdfs:label "Intel ACPI Software License Agreement"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:IntelACPI" .
+
+ns0:Jabber
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "JOSL" ;
+  rdfs:label "Jabber Open Source License 1.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:JabberOSLv1.0" .
+
+ns0:LGPLv21
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "2.1"^^xsd:string ;
+  ns0:synonyms "GNU LGPLv2.1", "LGPLv2.1" ;
+  rdfs:label "GNU Lesser General Public License 2.1"@en ;
+  rdfs:seeAlso "http://www.gnu.org/licenses/old-licenses/lgpl-2.1" .
+
+ns0:LGPLv3
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv3 ;
+  ns0:incompatible ns0:GPLv2 ;
+  ns0:copyleft true ;
+  ns0:version "3.0"^^xsd:string ;
+  ns0:synonyms "GNU LGPLv3", "LGPLv3" ;
+  rdfs:label "GNU Lesser General Public License 3.0"@en ;
+  rdfs:seeAlso "http://www.gnu.org/licenses/lgpl" .
+
+ns0:LatexV12
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.2"^^xsd:string ;
+  ns0:synonyms "LPPL Version 1.2", "The LaTeX Project Public License Version 1.2" ;
+  rdfs:label "LaTeX Project Public License 1.2"@en ;
+  rdfs:seeAlso "http://www.latex-project.org/lppl/lppl-1-2.txt" .
+
+ns0:LatexV13
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.3a"^^xsd:string ;
+  ns0:synonyms "LPPL Version 1.3a", "The LaTeX Project Public License Version 1.3a" ;
+  rdfs:label "LaTeX Project Public License 1.3a"@en ;
+  rdfs:seeAlso "http://www.latex-project.org/lppl/lppl-1-3a.txt" .
+
+ns0:Lucent
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.02"^^xsd:string ;
+  ns0:synonyms "Lucent Public License Version 1.02" ;
+  rdfs:label "Lucent Public License 1.02"@en ;
+  rdfs:seeAlso "http://plan9.bell-labs.com/plan9/license.html" .
+
+ns0:MPLv11
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.1"^^xsd:string ;
+  ns0:synonyms "Mozilla Public License Version 1.1" ;
+  rdfs:label "Mozilla Public License 1.1"@en ;
+  rdfs:seeAlso "https://www.mozilla.org/en-US/MPL/1.1/" .
+
+ns0:MPLv20
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "2.0"^^xsd:string ;
+  ns0:synonyms "Mozilla Public License Version 2.0" ;
+  rdfs:label "Mozilla Public License 2.0"@en ;
+  rdfs:seeAlso "https://www.mozilla.org/en-US/MPL/2.0/" .
+
+ns0:MSPL
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:synonyms "Ms-PL", "Microsoft Public License (Ms-PL)" ;
+  rdfs:label "Microsoft Public License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:MsPL" .
+
+ns0:MSRL
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:synonyms "Ms-RL", "Microsoft Reciprocal License (Ms-RL)" ;
+  rdfs:label "Microsoft Reciprocal License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:MsRL" .
+
+ns0:NCSA
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:synonyms "NCSA" ;
+  rdfs:label "University of Illinois/NCSA Open Source License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:IllinoisNCSA" .
+
+ns0:NOSL
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "Netizen Open Source License Version 1.0" ;
+  rdfs:label "Netizen Open Source License 1.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:NOSLv1.0" .
+
+ns0:NPL
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.1"^^xsd:string ;
+  ns0:synonyms "Netscape Public License Version 1.1" ;
+  rdfs:label "Netscape Public License 1.1"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki?title=License:NPLv1.1" .
+
+ns0:NetJavaS
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  rdfs:label "Netscape JavaScript License"@en .
+
+ns0:Nokia
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.0a"^^xsd:string ;
+  ns0:synonyms "NOKOS License", "Nokia Open Source License (NOKOS License) Version 1.0a" ;
+  rdfs:label "Nokia Open Source License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:NokOSv1.0a" .
+
+ns0:OSL
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "3.0"^^xsd:string ;
+  ns0:synonyms "OSL-3.0", "Open Software License v. 3.0 (OSL-3.0)" ;
+  rdfs:label "Open Software License 3.0"@en ;
+  rdfs:seeAlso "https://opensource.org/licenses/OSL-3.0" .
+
+ns0:OpenLDAPv23
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "2.3"^^xsd:string ;
+  ns0:synonyms "The OpenLDAP Public License Version 2.3" ;
+  rdfs:label "OpenLDAP License 2.3"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:OpenLDAPv2.3" .
+
+ns0:OpenLDAPv27
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "2.7"^^xsd:string ;
+  ns0:synonyms "The OpenLDAP Public License Version 2.7" ;
+  rdfs:label "OpenLDAP License 2.7"@en ;
+  rdfs:seeAlso "http://www.openldap.org/doc/admin21/license.html" .
+
+ns0:OpenSSL
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  rdfs:label "OpenSSL license"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:OpenSSL" .
+
+ns0:OriginalBSD
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:synonyms "BSD-4", "4-clause BSD" ;
+  rdfs:label "Original BSD License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:BSD_4Clause" .
+
+ns0:PHP
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "3.01"^^xsd:string ;
+  ns0:synonyms "The PHP License, version 3.01" ;
+  rdfs:label "PHP License 3.01"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:PHPv3.01" .
+
+ns0:Perl5
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "Perl 5 License"@en .
+
+ns0:Phorum
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "2.0"^^xsd:string ;
+  rdfs:label "Phorum License 2.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:Phorum2.0" .
+
+ns0:PublicD
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  rdfs:label "Public Domain"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:PublicDomain" .
+
+ns0:PythonV162
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "1.6a2"^^xsd:string ;
+  ns0:synonyms "Python Copyright 1.6a2" ;
+  rdfs:label "Python License 1.6a2"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki?title=License:Python1.6a2v" .
+
+ns0:PythonV201
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "2.0.1"^^xsd:string ;
+  ns0:synonyms "Python 2.0.1 license" ;
+  rdfs:label "Python License 2.0.1"@en ;
+  rdfs:seeAlso "https://www.python.org/download/releases/2.0.1/license/" .
+
+ns0:PythonV211
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "2.1.1"^^xsd:string ;
+  ns0:synonyms "Python 2.1.1 license" ;
+  rdfs:label "Python License 2.1.1"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki?title=License:Python2.0.1" .
+
+ns0:QPL
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "THE Q PUBLIC LICENSE version 1.0" ;
+  rdfs:label "Q Public License 1.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:QPLv1.0" .
+
+ns0:RPSL
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "RealNetworks Public Source License Version 1.0" ;
+  rdfs:label "RealNetworks Public Source License 1.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:RPSLv1.0" .
+
+ns0:Ruby
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  rdfs:label "License of Ruby"@en ;
+  rdfs:seeAlso "http://www.ruby-lang.org/en/about/license.txt" .
+
+ns0:SFL
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:synonyms "The SFL License Agreement" ;
+  rdfs:label "iMatix Standard Function Library (SFL) License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki?title=License:SFL" .
+
+ns0:SGI
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "2.0"^^xsd:string ;
+  rdfs:label "SGI Free Software License B 2.0"@en ;
+  rdfs:seeAlso "http://oss.sgi.com/projects/FreeB/" .
+
+ns0:Standard
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:synonyms "STANDARD ML OF NEW JERSEY COPYRIGHT NOTICE, LICENSE AND DISCLAIMER" ;
+  rdfs:label "Standard ML of New Jersey Copyright License"@en ;
+  rdfs:seeAlso "http://www.smlnj.org//license.html" .
+
+ns0:SunInd
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "Sun Industry Standards Source License - Version 1.0" ;
+  rdfs:label "Sun Industry Standards Source License 1.0"@en ;
+  rdfs:seeAlso "http://www.openoffice.org/licenses/sissl_license.html" .
+
+ns0:SunPub
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "SUN PUBLIC LICENSE Version 1.0" ;
+  rdfs:label "Sun Public License 1.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:SPLv1.0" .
+
+ns0:UPL
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "UPL", "The Universal Permissive License (UPL), Version 1.0" ;
+  rdfs:label "Universal Permissive License 1.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:Unicode" .
+
+ns0:Unicode
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:synonyms "UNICODE, INC. LICENSE AGREEMENT - DATA FILES AND SOFTWARE" ;
+  rdfs:label "Unicode, Inc. License Agreement for Data Files and Software"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:Unicode" .
+
+ns0:Unlicense
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "Unlicense"@en ;
+  rdfs:seeAlso "http://unlicense.org/" .
+
+ns0:W3C
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  rdfs:label "W3C Software Notice and License"@en ;
+  rdfs:seeAlso "https://www.w3.org/Consortium/Legal/2002/copyright-software-20021231" .
+
+ns0:WTFPL
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "2.0"^^xsd:string ;
+  rdfs:label "WTFPL 2.0"@en ;
+  rdfs:seeAlso "http://www.wtfpl.net/txt/copying/" .
+
+ns0:WebM
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "WebM License"@en .
+
+ns0:X11
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:synonyms "MIT License" ;
+  rdfs:label "X11 License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:X11" .
+
+ns0:XFree
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv3 ;
+  ns0:incompatible ns0:GPLv2 ;
+  ns0:copyleft false ;
+  ns0:version "1.1"^^xsd:string ;
+  rdfs:label "XFree86 License 1.1"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:XFree86_1.1" .
+
+ns0:Xinetd
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  rdfs:label "Xinetd License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:Xinetd" .
+
+ns0:Yahoo
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.1"^^xsd:string ;
+  ns0:synonyms "YPL", "Yahoo! Public License, Version 1.1 (YPL)" ;
+  rdfs:label "Yahoo! Public License 1.1"@en ;
+  rdfs:seeAlso "http://www.zimbra.com/license/yahoo_public_license_1.1.html" .
+
+ns0:ZLib
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "1.2.2"^^xsd:string ;
+  ns0:synonyms "zlib License" ;
+  rdfs:label "License of ZLib 1.2.2"@en ;
+  rdfs:seeAlso "http://www.gzip.org/zlib/zlib_license.html" .
+
+ns0:Zend
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "2.0"^^xsd:string ;
+  ns0:synonyms "The Zend Engine License, version 2.00" ;
+  rdfs:label "Zend License 2.00"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:ZELv2.0" .
+
+ns0:Zimbra
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "1.3"^^xsd:string ;
+  rdfs:label "Zimbra Public License 1.3"@en ;
+  rdfs:seeAlso "http://www.zimbra.com/license/zimbra-public-license-1-3.html" .
+
+ns0:ZopeV1
+  a ns0:freeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "Zope Public License (ZPL) Version 1.0" ;
+  rdfs:label "Zope Public License 1.0"@en ;
+  rdfs:seeAlso "http://web.archive.org/web/20000816090640/http://www.zope.org/Resources/ZPL" .
+
+ns0:ZopeV2
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "2.0"^^xsd:string ;
+  ns0:synonyms "Zope Public License (ZPL) Version 2.0" ;
+  rdfs:label "Zope Public License 2.0"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki?title=License:ZopePLv2.1" .
+
+ns0:ZopeV21
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft false ;
+  ns0:version "2.1"^^xsd:string ;
+  ns0:synonyms "Zope Public License (ZPL) Version 2.1" ;
+  rdfs:label "Zope Public License 2.1"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki?title=License:ZopePLv2.1" .
+
+ns0:eCosV20
+  a ns0:freeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:copyleft true ;
+  ns0:version "2.0"^^xsd:string ;
+  rdfs:label "eCos License 2.0"@en ;
+  rdfs:seeAlso "http://www.gnu.org/licenses/ecos-license.html" .
+
+ns0:imlib
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "imlib2 License"@en ;
+  rdfs:seeAlso "http://directory.fsf.org/wiki/License:Imlib2" .
+
+ns0:jpeg
+  a ns0:freeSoftwareLicense ;
+  ns0:compatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:synonyms "The Independent JPEG Group's JPEG software license" ;
+  rdfs:label "Independent JPEG Group License"@en ;
+  rdfs:seeAlso "https://dev.w3.org/cvsweb/Amaya/libjpeg/Attic/README?rev=1.2" .
+
+ns0:aladdin
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "Aladdin Free Public License"@en .
+
+ns0:APSLv10
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.0"^^xsd:string ;
+  ns0:synonyms "Apple Public Source License Version 1.0" ;
+  rdfs:label "Apple Public Source License 1.0"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:APSLv1.x" .
+
+ns0:APSLv11
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.1"^^xsd:string ;
+  ns0:synonyms "Apple Public Source License Version 1.1" ;
+  rdfs:label "Apple Public Source License 1.1"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:APSLv1.x" .
+
+ns0:APSLv12
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.2"^^xsd:string ;
+  ns0:synonyms "Apple Public Source License Version 1.2" ;
+  rdfs:label "Apple Public Source License 1.2"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:APSLv1.x" .
+
+ns0:ArtisticV1
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.0"^^xsd:string ;
+  rdfs:label "Artistic License 1.0"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:Artistic_v1.0" .
+
+ns0:ATT
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "AT&T Public License"@en .
+
+ns0:Code
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.02"^^xsd:string ;
+  rdfs:label "Code Project Open License 1.02"@en .
+
+ns0:eCosV11
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.1"^^xsd:string ;
+  ns0:synonyms "Red Hat eCos Public License v1.1" ;
+  rdfs:label "eCos Public License 1.1"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:ECosPLv1.1" .
+
+ns0:CNRI
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.1"^^xsd:string ;
+  rdfs:label "CNRI Digital Object Repository License Agreement"@en .
+
+ns0:GPLPA
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.1"^^xsd:string ;
+  ns0:synonyms "GPL -PA GENERAL PUBLIC LICENSE FOR COMPUTER PROGRAMS OF THE PUBLIC ADMINISTRATION" ;
+  rdfs:label "GPL for Computer Programs of the Public Administration 1.1"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:GPL-PA" .
+
+ns0:HESSLA
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "Hacktivismo Enhanced-Source Software License Agreement (HESSLA)"@en .
+
+ns0:JSCL
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:synonyms "JSCL License" ;
+  rdfs:label "Jahia Community Source License"@en ;
+  rdfs:seeAlso "https://web.archive.org/web/20050317081359/http://www.jahia.org/jahia/page145.html" .
+
+ns0:JSON
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "JSON License"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:JSON" .
+
+ns0:Lha
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "License of Lha"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:Lha" .
+
+ns0:MsSS
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "Microsoft's Shared Source CLI, C#, and Jscript License"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:Ms-SS" .
+
+ns0:NASA
+  a ns0:nonFreeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.3"^^xsd:string ;
+  rdfs:label "NASA Open Source Agreement 1.3"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:NASA-OSA_v1.3" .
+
+ns0:Oculus
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:synonyms "Oculus VR, Inc. Software Development Kit License Agreement" ;
+  rdfs:label "Oculus Rift SDK License"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:Oculus_VR_Rift_SDK_License" .
+
+ns0:OpenPub
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.0"^^xsd:string ;
+  rdfs:label "Open Public License 1.0"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:OpenPLv1.0" .
+
+ns0:Peer
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "Peer-Production License"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:PPL" .
+
+ns0:Pine
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "Pine License"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:PINE" .
+
+ns0:Reciprocal
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.3"^^xsd:string ;
+  rdfs:label "Reciprocal Public License 1.3"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:ReciprocalPLv1.3" .
+
+ns0:Scilab
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "Scilab License"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:Scilab-old" .
+
+ns0:Scratch
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "Scratch License"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:Scratch" .
+
+ns0:Simple
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "Simple Machines License"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:SimpleM" .
+
+ns0:Squeak
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "Squeak license"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:Squeak-old" .
+
+ns0:SunCom
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "2.8"^^xsd:string ;
+  rdfs:label "Sun Community Source License 2.8"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:SunCSLv2.8" .
+
+ns0:Sybase
+  a ns0:nonFreeSoftwareLicense, ns0:openSourceLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "1.0"^^xsd:string ;
+  rdfs:label "Sybase Open Watcom Public License 1.0"@en .
+
+ns0:SystemC
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "3.0"^^xsd:string ;
+  rdfs:label "SystemC Open Source License 3.0"@en .
+
+ns0:TrueCrypt
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:version "3.0"^^xsd:string ;
+  rdfs:label "Truecrypt License 3.0"@en ;
+  rdfs:seeAlso "https://directory.fsf.org/wiki/License:TrueCrypt" .
+
+ns0:Utah
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  ns0:synonyms "UNIVERSITY OF UTAH RESEARCH FOUNDATION PUBLIC LICENSE" ;
+  rdfs:label "University of Utah Public License"@en ;
+  rdfs:seeAlso "https://www.cs.utah.edu/~gk/teem/txt/LICENSE.txt" .
+
+ns0:YaST
+  a ns0:nonFreeSoftwareLicense ;
+  ns0:incompatible ns0:GPLv2, ns0:GPLv3 ;
+  rdfs:label "YaST License"@en .
